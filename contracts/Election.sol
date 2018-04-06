@@ -24,7 +24,7 @@ contract Election {
   function Election(string _name, uint durationMinutes, string candidate1, string candidate2) {
     name = _name;
     owner = msg.sender;
-    electionEnd = now + durationMinutes + 1;
+    electionEnd = now + (durationMinutes * 1000 * 60) + 1;
     candidates.push(Candidate(candidate1, 0));
     candidates.push(Candidate(candidate2, 0));
   }
